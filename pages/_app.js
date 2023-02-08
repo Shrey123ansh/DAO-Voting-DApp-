@@ -1,5 +1,23 @@
-import '../styles/globals.css'
+import "../styles/globals.css";
+// import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+
+//INTERNAL IMPORT
+import { VotingProvider } from "../context/Voter";
+import NavBar from "../components/NavBar/NavBar";
+
+const MyApp = ({ Component, pageProps }) => (
+  // <ThirdwebProvider desiredChainId={ChainId.Mumbai}>
+      
+  <VotingProvider>
+    <div>
+      <NavBar />
+      <div>
+        <Component {...pageProps} />
+      </div>
+    </div>
+  </VotingProvider>
+    //  </ThirdwebProvider>
+);
+
+export default MyApp;
